@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prisavelo_ui/InitialPages/Base.dart';
-import 'package:prisavelo_ui/InitialPages/Login.dart';
 import 'package:prisavelo_ui/MainPages/ChatList.dart';
 import 'package:prisavelo_ui/MainPages/mainPage.dart';
 
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: Base(),
     );
   }
 }
