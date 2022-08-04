@@ -57,12 +57,20 @@ class _MainState extends State<Main> {
                         end: Alignment.bottomCenter)
                         : null,
                   ),
-                  child: Icon(
-                    data[i],
-                    size: 35,
-                    color: i == selectedIndex
-                        ? Colors.white
-                        : Colors.grey.shade800,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5),
+                    child: Column(
+                      children: [
+                        Icon(
+                          data[i],
+                          size: 35,
+                          color: i == selectedIndex
+                              ? Colors.white
+                              : Colors.grey.shade800,
+                        ),
+                        Text("Home",style: TextStyle(color: Colors.white),)
+                      ],
+                    ),
                   ),
                 ),
               ),

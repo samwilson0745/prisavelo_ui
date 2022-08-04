@@ -18,6 +18,7 @@ class _BaseState extends State<Base> {
 
   TextEditingController _email = new TextEditingController();
   TextEditingController _password = new TextEditingController();
+
   bool _passwordVisible=true;
   double _opacity=0.0;
 
@@ -26,6 +27,7 @@ class _BaseState extends State<Base> {
       content: Text(text),
     );
   }
+
   void validation() async{
     final FormState? _formState = _key.currentState;
     if(_formState !=null){
@@ -40,22 +42,26 @@ class _BaseState extends State<Base> {
     }
   }
 
-  double _imageHeight=0.0,_textHeight=0.0,_panelText=0.0;
+  double _top=0.0,_imageHeight=0.0,_textHeight=0.0,_panelText=0.0,_imageWidth=0.0;
   String subtile='Swipe Up to explore a new world of Lifestyle';
-  bool _visible=true,state=false;
+  bool state=false;
 
   @override
   Widget build(BuildContext context) {
-
+    Size size=MediaQuery.of(context).size;
     double _width=MediaQuery.of(context).size.width;
     double _height=MediaQuery.of(context).size.height;
-    _imageHeight=_height/3;
+    _top=_height/3.5;
+    _imageWidth=_width/2.7;
+    _imageHeight = _height/2.7;
     _textHeight=_height/1.4;
     _panelText=_height/1.76;
 
     void changeIt(pos){
       setState(()=>{
-        _imageHeight=pos*_height/10,
+        _top=pos*_top,
+        _imageWidth=pos*_imageWidth,
+        _imageHeight=pos*_imageHeight,
         _opacity=pos
       });
     }
@@ -77,18 +83,17 @@ class _BaseState extends State<Base> {
           ),
           child: SlidingUpPanel(
             onPanelSlide: (double pos)=>changeIt(pos),
-            maxHeight: _height/1.73,
+            maxHeight: _height/1.7,
             minHeight: 40,
             parallaxEnabled: true,
             parallaxOffset: 0.5,
             body: Stack(
                 children: <Widget>[
                   Positioned(
-                      top: _imageHeight,
-                      left: _width/3.5,
-                      child: Image.asset('assets/whiteLogo.png',width: _width * 0.42,height: _height*0.28,)
+                      top: _top,
+                      left: _width/3.2,
+                      child: Image.asset('assets/whiteLogo.png',width: _imageWidth,height: _imageHeight,)
                   ),
-
                   Positioned(
                       top: _panelText,
                       left: _width*0.05,
@@ -124,7 +129,7 @@ class _BaseState extends State<Base> {
                             ],
                           ))
                   ),]),
-            panel: state?_panel("Create an Account","Already have an account","Sign Up","Login"):_panel("Enter your Login Details","Do You have an account","Login","Sign Up"),
+            panel: state?_panel("Create an Account","Already have an account","Sign Up","Login",size):_panel("Enter your Login Details","Do You have an account","Login","Sign Up",size),
       borderRadius: BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30)
@@ -134,7 +139,7 @@ class _BaseState extends State<Base> {
 
     ));
   }
-  Widget _panel(String header,String text,String buttonText,String linkText){
+  Widget _panel(String header,String text,String buttonText,String linkText,Size size){
     return  GestureDetector(
       onTap: (){
         FocusManager.instance.primaryFocus?.unfocus();
@@ -151,7 +156,7 @@ class _BaseState extends State<Base> {
                 child: Column(
                   children: [
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 21),
+                      margin: EdgeInsets.symmetric(vertical: size.height*0.03),
                       height: 5,
                       width: 80,
                       decoration: BoxDecoration(
@@ -159,88 +164,38 @@ class _BaseState extends State<Base> {
                         borderRadius: BorderRadius.all(Radius.circular(30))
                       ),
                     ),
-                  Padding(padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: Text(header,style: TextStyle(fontSize: 22),),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: Text(header,style: TextStyle(fontSize: size.height*0.03),),
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 17,vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: size.width*0.045,vertical: size.height*0.01),
                     child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text('Email ID')),
+                        child: Text('Email ID',style: TextStyle(fontSize: size.height*0.02),)),
                   ),
                     Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 14),
-                    child: TextFormField(
-                        controller: _email,
-                        onChanged: (value){
-                          setState(() {
-                            email=value;
-                          });
-                        },
-                        validator: (value){
-                          if(value == ""){
-                            return "PLease fill email";
-                          }
-                          if(!regExp.hasMatch(value.toString())){
-                            return "Email is Invalid";
-                          }
-                        },
-                        decoration:InputDecoration(
-                          focusedErrorBorder:OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.red,width: 2),
-                              borderRadius: BorderRadius.all(Radius.circular(10))
-                          ),
-                          errorBorder:  OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.red,width: 2),
-                              borderRadius: BorderRadius.all(Radius.circular(10))
-                          ),
-                            hintText: "Email",
-                            hintStyle: TextStyle(color: Colors.black),
-                          contentPadding: EdgeInsets.all(15),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black,width:1),
-                              borderRadius: BorderRadius.all(Radius.circular(15))
-                          ),
-                          focusedBorder:  OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black,width: 3),
-                              borderRadius: BorderRadius.all(Radius.circular(15))
-                          ),
-                        )
-                    ),
-                  ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 20,left: 15),
-                      child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text('Password')),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal:14,vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: size.width*0.04),
+                    child: Expanded(
+                      flex: 4,
                       child: TextFormField(
-                          controller: _password,
-                          obscureText: _passwordVisible,
+                          controller: _email,
                           onChanged: (value){
                             setState(() {
-                              password = value;
+                              email=value;
                             });
                           },
                           validator: (value){
-                            if(value==""){
-                              return "Please Fill Password";
+                            if(value == ""){
+                              return "PLease fill email";
                             }
-                            else if(value!=null){
-                              if(value.length<8){
-                                return "Password is too short";
-                              }
-                            }
-
-                            else{
-                              return "";
+                            if(!regExp.hasMatch(value.toString())){
+                              return "Email is Invalid";
                             }
                           },
-
                           decoration:InputDecoration(
+                            isDense: true,
                             focusedErrorBorder:OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.red,width: 2),
                                 borderRadius: BorderRadius.all(Radius.circular(10))
@@ -249,19 +204,9 @@ class _BaseState extends State<Base> {
                                 borderSide: BorderSide(color: Colors.red,width: 2),
                                 borderRadius: BorderRadius.all(Radius.circular(10))
                             ),
-                              suffixIcon: GestureDetector(
-                                onTap: (){
-                                  setState(() {
-                                    _passwordVisible=!_passwordVisible;
-                                  });
-                                },
-                                child: Icon(
-                                  _passwordVisible?Icons.visibility_off:Icons.visibility,
-                                ),
-                              ),
-                              hintText: "Password",
+                              hintText: "Email",
                               hintStyle: TextStyle(color: Colors.black),
-                            contentPadding: EdgeInsets.all(15),
+                            contentPadding: EdgeInsets.all(10),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.black,width:1),
                                 borderRadius: BorderRadius.all(Radius.circular(15))
@@ -273,17 +218,84 @@ class _BaseState extends State<Base> {
                           )
                       ),
                     ),
+                  ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: size.width*0.045,vertical: size.height*0.015),
+                      child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text('Password')),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal:size.width*0.04),
+                      child: Expanded(
+                        flex: 4,
+                        child: TextFormField(
+                            controller: _password,
+                            obscureText: _passwordVisible,
+                            onChanged: (value){
+                              setState(() {
+                                password = value;
+                              });
+                            },
+                            validator: (value){
+                              if(value==""){
+                                return "Please Fill Password";
+                              }
+                              else if(value!=null){
+                                if(value.length<8){
+                                  return "Password is too short";
+                                }
+                              }
+                              else{
+                                return "";
+                              }
+                            },
+
+                            decoration:InputDecoration(
+                              focusedErrorBorder:OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.red,width: 2),
+                                  borderRadius: BorderRadius.all(Radius.circular(10))
+                              ),
+                              errorBorder:  OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.red,width: 2),
+                                  borderRadius: BorderRadius.all(Radius.circular(10))
+                              ),
+                                suffixIcon: GestureDetector(
+                                  onTap: (){
+                                    setState(() {
+                                      _passwordVisible=!_passwordVisible;
+                                    });
+                                  },
+                                  child: Icon(
+                                    _passwordVisible?Icons.visibility_off:Icons.visibility,
+                                  ),
+                                ),
+                                hintText: "Password",
+                                hintStyle: TextStyle(color: Colors.black),
+                              contentPadding: EdgeInsets.all(10),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black,width:1),
+                                  borderRadius: BorderRadius.all(Radius.circular(15))
+                              ),
+                              focusedBorder:  OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black,width: 3),
+                                  borderRadius: BorderRadius.all(Radius.circular(15))
+                              ),
+                            )
+                        ),
+                      ),
+                    ),
                     Align(
-                      alignment: Alignment.centerRight,
+                      alignment: Alignment.bottomRight,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 15,vertical: 2),
+                        padding: EdgeInsets.symmetric(horizontal: size.width*0.04,vertical: size.height*0.01),
                         child: Text('Forgot Password?',style: TextStyle(fontWeight: FontWeight.bold),),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 10,horizontal: 14),
+                      margin: EdgeInsets.symmetric(vertical: size.height*0.01,horizontal: size.width*0.04),
                       width: double.infinity,
-                      height: 50,
+                      height: size.height*0.065,
                       child: ElevatedButton(
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(Color(0xffD00000)),
@@ -302,7 +314,7 @@ class _BaseState extends State<Base> {
                       ),
                     ),
                     Padding(
-                      padding:EdgeInsets.symmetric(horizontal: 10,vertical: 8),
+                      padding:EdgeInsets.symmetric(horizontal: size.width*0.04,vertical: size.height*0.01),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -327,25 +339,22 @@ class _BaseState extends State<Base> {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 5),
-                            child: Icon(
-                              Icons.facebook
-                            ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 5),
+                          child: Icon(
+                            Icons.facebook
                           ),
-                          Padding(
-                            padding:  EdgeInsets.symmetric(horizontal: 5),
-                            child: Icon(
-                              Icons.mail
-                            ),
-                          )
-                        ],
-                      ),
+                        ),
+                        Padding(
+                          padding:  EdgeInsets.symmetric(horizontal: 5),
+                          child: Icon(
+                            Icons.mail
+                          ),
+                        )
+                      ],
                     )
 
                 ],
