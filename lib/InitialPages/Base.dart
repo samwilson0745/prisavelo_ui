@@ -418,7 +418,7 @@ class _BaseState extends State<Base> {
                                 borderSide: BorderSide(color: Colors.black,width:1),
                                 borderRadius: BorderRadius.all(Radius.circular(15))
                             ),
-                            focusedBorder:  OutlineInputBorder(
+                            focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.black,width: 3),
                                 borderRadius: BorderRadius.all(Radius.circular(15))
                             ),

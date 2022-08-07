@@ -4,6 +4,7 @@ import 'package:prisavelo_ui/MainPages/ChatList.dart';
 import 'package:prisavelo_ui/MainPages/mainPage.dart';
 import 'package:prisavelo_ui/MainPages/Profile.dart';
 import 'package:prisavelo_ui/MainPages/Switch.dart';
+import 'package:prisavelo_ui/MainPages/AddCourse.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SwitchtoProf(),
+      home: AddCourse(),
     );
   }
 }
