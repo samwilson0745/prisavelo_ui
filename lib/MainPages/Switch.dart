@@ -88,20 +88,17 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                                     children: [
                                       Expanded(
                                         flex:4,
-                                        child: size.height>780?CircleAvatar(
-                                          radius: size.height*0.045,
+                                        child: CircleAvatar(
+                                          radius: size.height>780?size.height*0.045:size.height*0.05,
                                           backgroundColor: Color(0xffD00000),
-                                        ):CircleAvatar(
-                                          radius: size.height*0.05,
-                                          backgroundColor: Color(0xffD00000),
-                                        ),
+                                        )
                                       ),
                                       Expanded(
                                         flex: 7,
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
-                                            size.height>789?Text('Sayak Ghosh',style: TextStyle(fontSize: size.height*0.035,fontWeight: FontWeight.bold),):Text('Sayak Ghosh',style: TextStyle(fontSize: size.height>780?size.height*0.034:size.height*0.04,fontWeight: FontWeight.bold),),
+                                            Text('Sayak Ghosh',style: TextStyle(fontSize: size.height>789?size.height*0.035:size.height*0.04,fontWeight: FontWeight.bold),),
                                             Padding(
                                               padding: EdgeInsets.only(bottom: size.height*0.01),
                                               child: Text('username@username'),
@@ -121,35 +118,9 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                                 child: Text('Describe your Expertise',style: TextStyle(fontSize: size.height*0.02),),
                               ),
 
-                              size.height>780?TextField(
+                              TextField(
                                   controller: _description,
-                                  maxLines: 3,
-                                  keyboardType: TextInputType.multiline,
-                                  decoration:InputDecoration(
-                                    isDense: true,
-                                    focusedErrorBorder:OutlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.red,width: 2),
-                                        borderRadius: BorderRadius.all(Radius.circular(10))
-                                    ),
-                                    errorBorder:  OutlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.red,width: 2),
-                                        borderRadius: BorderRadius.all(Radius.circular(10))
-                                    ),
-                                    hintText: "Email",
-                                    hintStyle: TextStyle(color: Colors.black),
-                                    contentPadding: EdgeInsets.symmetric(horizontal: size.width*0.025,vertical: size.height*0.02),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.black,width:1),
-                                        borderRadius: BorderRadius.all(Radius.circular(10))
-                                    ),
-                                    focusedBorder:  OutlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.black,width: 1),
-                                        borderRadius: BorderRadius.all(Radius.circular(10))
-                                    ),
-                                  )
-                              ):TextField(
-                                  controller: _description,
-                                  maxLines: 2,
+                                  maxLines: size.height>780?3:2,
                                   keyboardType: TextInputType.multiline,
                                   decoration:InputDecoration(
                                     isDense: true,
@@ -247,10 +218,10 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                                 padding: EdgeInsets.only(top: size.height*0.02,right: size.height*0.02),
                                 child: Text('Disclaimer: Switching your profile to professional will give you the rights to provide your experties to clients.',style: TextStyle(fontSize: size.height*0.02),),
                               ),
-                              size.height>780?Container(
+                              Container(
                                 margin: EdgeInsets.symmetric(vertical: size.height*0.01),
                                 width: size.width,
-                                height: size.height*0.065,
+                                height: size.height>780?size.height*0.065:size.height*0.07,
                                 child: OutlinedButton(
                                     onPressed: (){},
                                     style: OutlinedButton.styleFrom(
@@ -263,22 +234,6 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                                         )
                                     ),
                                     child: Text('Switch to Professional',style: TextStyle(color: Color(0xffD00000),fontSize: 18),)),
-                              ):Container(
-                                margin: EdgeInsets.symmetric(vertical: size.height*0.01),
-                                width: size.width,
-                                height: size.height*0.07,
-                                child: OutlinedButton(
-                                    onPressed: (){},
-                                    style: OutlinedButton.styleFrom(
-                                        backgroundColor: Color(0xfffff9eb),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(10.0),
-                                        ),
-                                        side: BorderSide(
-                                            color: Color(0xffD00000),width: 2
-                                        )
-                                    ),
-                                    child: Text('Switch to Professional',style: TextStyle(color: Color(0xffD00000)),)),
                               )
                             ],
                           ),
@@ -311,7 +266,7 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                   color: _state==value?Color(0xffD00000):Colors.black
               )
           ),
-          child: Text(name,style: TextStyle(color: _state==value?Color(0xffD00000):Colors.black),)),
+          child: Text(name,style: TextStyle(color: _state==value?Color(0xffD00000):Colors.black,fontSize: size.height*0.02),)),
     );
   }
 }
