@@ -266,7 +266,7 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                   color: _state==value?Color(0xffD00000):Colors.black
               )
           ),
-          child: Text(name,style: TextStyle(color: _state==value?Color(0xffD00000):Colors.black,fontSize: size.height*0.02),)),
+          child: Text(name,style: TextStyle(color: _state==value?Color(0xffD00000):Colors.black,fontSize: size.height*0.015),)),
     );
   }
 }

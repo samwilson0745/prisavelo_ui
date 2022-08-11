@@ -118,7 +118,7 @@ class _AddCourseState extends State<AddCourse> {
                                 child: Container(
                                   margin: EdgeInsets.symmetric(horizontal: size.width*0.02),
                                   width: size.height>780?size.width/4.5:size.width/5,
-                                  height: size.height>780?size.height/9:size.height/8.5,
+                                  height: size.height>780?size.height/10:size.height/8.5,
                                   color: Colors.grey,
                                 ),
                               )
