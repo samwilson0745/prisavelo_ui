@@ -248,8 +248,11 @@ class _AddCourseState extends State<AddCourse> {
               backgroundColor: Color(0xfffff9eb),
               side: BorderSide(
                   color: _state==value?Color(0xffD00000):Colors.black,
-                width: _state==value?2:1
-              )
+                width: _state==value?2:1,
+              ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
           ),
           child: Text(name,style: TextStyle(color: _state==value?Color(0xffD00000):Colors.black,fontSize: size.height*0.015,fontWeight: _state==value?FontWeight.bold:null))),
     );
