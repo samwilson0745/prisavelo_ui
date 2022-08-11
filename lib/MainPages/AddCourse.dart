@@ -118,7 +118,7 @@ class _AddCourseState extends State<AddCourse> {
                                 child: Container(
                                   margin: EdgeInsets.symmetric(horizontal: size.width*0.02),
                                   width: size.height>780?size.width/4.5:size.width/5,
-                                  height: size.height>780?size.width/9:size.height/8.5,
+                                  height: size.height>780?size.height/9:size.height/8.5,
                                   color: Colors.grey,
                                 ),
                               )
@@ -204,7 +204,7 @@ class _AddCourseState extends State<AddCourse> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: size.height>780?size.height*0.08:size.height*0.04),
+                            margin: EdgeInsets.only(top: size.height>780?size.height*0.12:size.height*0.04),
                             width: size.width,
                             height: size.height>780?size.height*0.06:size.height*0.07,
                             child: OutlinedButton(
