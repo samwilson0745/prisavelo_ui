@@ -37,6 +37,7 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                   width: size.width,
                   height: size.height,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                           flex: 2,
@@ -48,7 +49,7 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                                 child: IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back_ios,color: Colors.white,size: size.height*0.035,)),
                               ),
                               Padding(
-                                padding: EdgeInsets.symmetric(horizontal: size.width*0.06,vertical: size.width*0.01),
+                                padding: EdgeInsets.symmetric(horizontal: size.width*0.08,vertical: size.width*0.01),
                                 child: size.height>780?Text(
                                   'Switch to Professional',
                                   style: TextStyle(
@@ -60,7 +61,7 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                                   'Switch to Professional',
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: size.height*0.055,
+                                      fontSize: size.height*0.05,
                                       fontWeight: FontWeight.bold
                                   ),
                                 ),
@@ -179,7 +180,7 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                                         borderRadius: BorderRadius.all(Radius.circular(10))
                                     ),
                                     hintText: "Enter Certificate Name",
-                                    hintStyle: TextStyle(color: Colors.black),
+                                    hintStyle: TextStyle(color: Colors.black,fontSize: size.height>780?20:15),
                                     contentPadding: EdgeInsets.symmetric(horizontal: size.width*0.025,vertical: size.height*0.02),
                                     enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(color: Colors.black,width:1),
@@ -212,7 +213,7 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                                 ),
                               ),
                               size.height>780?Padding(
-                                padding: EdgeInsets.only(top: size.height*0.05,left: size.width*0.01),
+                                padding: EdgeInsets.only(top: size.height*0.08,left: size.width*0.01),
                                 child: Text('Disclaimer: Switching your profile to professional will give you the rights to provide your experties to clients.',style: TextStyle(fontSize: size.height*0.02,color: Colors.grey[600]),),
                               ):Padding(
                                 padding: EdgeInsets.only(top: size.height*0.02,right: size.height*0.02),
@@ -233,7 +234,7 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                                             color: Color(0xffD00000),width: 2
                                         )
                                     ),
-                                    child: Text('Switch to Professional',style: TextStyle(color: Color(0xffD00000),fontSize: 18),)),
+                                    child: Text('Switch to Professional',style: TextStyle(color: Color(0xffD00000),fontSize: size.height>780?18:15),)),
                               )
                             ],
                           ),
@@ -252,8 +253,8 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
   Widget _button(String name,Size size,int value){
     return Container(
       margin: EdgeInsets.symmetric(horizontal: size.width*0.01),
-      width: size.width*0.215,
-      height: size.height>780?size.height*0.05:size.height*0.06,
+      width: size.width*0.21,
+      height: size.height>780?size.height*0.04:size.height*0.05,
       child: OutlinedButton(
           onPressed: (){
             setState(()=>{
@@ -266,7 +267,7 @@ class _SwitchtoProfState extends State<SwitchtoProf> {
                   color: _state==value?Color(0xffD00000):Colors.black
               )
           ),
-          child: Text(name,style: TextStyle(color: _state==value?Color(0xffD00000):Colors.black,fontSize: size.height*0.015),)),
+          child: Text(name,style: TextStyle(color: _state==value?Color(0xffD00000):Colors.black,fontSize: size.height*0.015,fontWeight: _state==value?FontWeight.bold:null))),
     );
   }
 }
