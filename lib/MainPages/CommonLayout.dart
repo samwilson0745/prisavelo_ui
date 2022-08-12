@@ -13,7 +13,9 @@ class _CommonState extends State<Common> {
     Size size=MediaQuery.of(context).size;
 
     return GestureDetector(
-      onTap: (){},
+      onTap: (){
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         backgroundColor: Color(0xff03071e),
         body: CustomScrollView(

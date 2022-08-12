@@ -18,103 +18,108 @@ class _FindCourseState extends State<FindCourse> {
 
     Size size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: (){},
-          icon: Icon(Icons.arrow_back_ios,color: Colors.white,),
+    return GestureDetector(
+      onTap: (){
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: (){},
+            icon: Icon(Icons.arrow_back_ios,color: Colors.white,),
+          ),
+          backgroundColor: Color(0xff03071e),
+          toolbarHeight: 45,
+          elevation: 0.0,
         ),
         backgroundColor: Color(0xff03071e),
-        toolbarHeight: 45,
-        elevation: 0.0,
-      ),
-      backgroundColor: Color(0xff03071e),
-      body: Container(
-                width: size.width,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: size.width*0.06,vertical: size.height*0.01),
-                            child: Text("Find Course",style: TextStyle(color: Colors.white,fontSize: size.height*0.04,fontWeight: FontWeight.w800),),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: size.width*0.04),
-                            child: TextField(
-                                decoration:InputDecoration(
-                                  prefixIcon: Image.asset('assets/search-2-line.png'),
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  hintText: "Search",
-                                  hintStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
-                                  contentPadding: EdgeInsets.all(size.height*0.01),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff03071e),width:1),
-                                      borderRadius: BorderRadius.all(Radius.circular(30))
-                                  ),
-                                  focusedBorder:  OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff03071e),width: 1),
-                                      borderRadius: BorderRadius.all(Radius.circular(30))
-                                  ),
-                                )
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                        flex: size.height>780?10:9,
-                        child:  Container(
-                        width: size.width,
-                        height: size.height,
-                        decoration: BoxDecoration(
-                            color: Color(0xfffff9eb),
-                            borderRadius: BorderRadius.vertical(top:Radius.circular(30))
-                        ),
-                        child:Column(
+        body: Container(
+                  width: size.width,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.symmetric(vertical: size.height*0.02,horizontal: size.width*0.035),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('Categories',style: TextStyle(fontWeight: FontWeight.bold),),
-                                  Row(
-                                    children: [
-                                      _button("Cardio", size, 0),
-                                      _button("Gym", size, 1),
-                                      _button("Yoga", size, 2),
-                                    ],
+                              padding: EdgeInsets.symmetric(horizontal: size.width*0.06,vertical: size.height*0.01),
+                              child: Text("Find Course",style: TextStyle(color: Colors.white,fontSize: size.height*0.04,fontWeight: FontWeight.w800),),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: size.width*0.04),
+                              child: TextField(
+                                  decoration:InputDecoration(
+                                    prefixIcon: Image.asset('assets/search-2-line.png'),
+                                    fillColor: Colors.white,
+                                    filled: true,
+                                    hintText: "Search",
+                                    hintStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
+                                    contentPadding: EdgeInsets.all(size.height*0.01),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff03071e),width:1),
+                                        borderRadius: BorderRadius.all(Radius.circular(30))
+                                    ),
+                                    focusedBorder:  OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff03071e),width: 1),
+                                        borderRadius: BorderRadius.all(Radius.circular(30))
+                                    ),
                                   )
-                                ],
                               ),
                             ),
-                            Divider(
-                              height: 5,
-                              color: Colors.grey,
-                            ),
-                            Expanded(
-                                flex: 4,
-                                child: ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: 5,
-                                  itemBuilder: (context,index){
-                                    return _ListTile(size, 'Gym For Beginner 30 Min No Equipment No rest', 'GYM', 'Sayak Ghosh', 'image', 'Description : sdjsdj a ds sdg s gsg sdg sdg sdg s gsdg sg sdg sdg sdgsf fsgsg h dfhfd hfdhdf hdfh dfh dh df', 'coverImage');
-                                  },
-                                ))
                           ],
-                        )
-                        ))
-                  ],
-                ),
+                        ),
+                      ),
+                      Expanded(
+                          flex: size.height>780?10:9,
+                          child:  Container(
+                          width: size.width,
+                          height: size.height,
+                          decoration: BoxDecoration(
+                              color: Color(0xfffff9eb),
+                              borderRadius: BorderRadius.vertical(top:Radius.circular(30))
+                          ),
+                          child:Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: size.height*0.02,horizontal: size.width*0.035),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text('Categories',style: TextStyle(fontWeight: FontWeight.bold),),
+                                    Row(
+                                      children: [
+                                        _button("Cardio", size, 0),
+                                        _button("Gym", size, 1),
+                                        _button("Yoga", size, 2),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Divider(
+                                height: 5,
+                                color: Colors.grey,
+                              ),
+                              Expanded(
+                                  flex: 4,
+                                  child: ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: 5,
+                                    itemBuilder: (context,index){
+                                      return _ListTile(size, 'Gym For Beginner 30 Min No Equipment No rest', 'GYM', 'Sayak Ghosh', 'image', 'Description : sdjsdj a ds sdg s gsg sdg sdg sdg s gsdg sg sdg sdg sdgsf fsgsg h dfhfd hfdhdf hdfh dfh dh df', 'coverImage');
+                                    },
+                                  ))
+                            ],
+                          )
+                          ))
+                    ],
+                  ),
 
-              ),
+                ),
+      ),
     );
   }
   Widget _ListTile(Size size,String topic,String category,String profileName,String profileImage,String description,String coverImage){
