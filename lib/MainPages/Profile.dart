@@ -133,7 +133,7 @@ class profileState extends State<Profile>{
                   padding: EdgeInsets.symmetric(vertical: size.height*0.02),
                   child: Container(
                     width: size.height*0.4,
-                    child: size.height>789?ReadMoreText('Mr.Perfect\nSimple boy\nMusic Lover', trimLines: 2,
+                    child: size.height>780?ReadMoreText('Mr.Perfect\nSimple boy\nMusic Lover', trimLines: 2,
                       colorClickableText: Color(0xffD00000),
                       trimMode: TrimMode.Line,
                       trimCollapsedText: 'Show more',
