@@ -31,7 +31,6 @@ class _SearchState extends State<Search> {
           icon: Icon(Icons.arrow_back_ios,color: Colors.white,),
         ),
         backgroundColor: Color(0xff03071e),
-        toolbarHeight: 30,
         elevation: 0.0,
       ),
       body: Container(
@@ -40,8 +39,8 @@ class _SearchState extends State<Search> {
           color: Color(0xff03071e),
           child: SlidingUpPanel(
             controller: panelController,
-            minHeight: 40,
-            maxHeight: size.height>700?size.height/1.45:size.height/1.55,
+            minHeight: size.height>780?45:35,
+            maxHeight: size.height>700?size.height/1.45:size.height/1.6,
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30)
@@ -79,12 +78,11 @@ class _SearchState extends State<Search> {
                 )
             ),
             body: Container(
-              margin: EdgeInsets.symmetric(vertical: size.height*0.02),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: size.width*0.06,vertical: size.height*0.01),
+                    padding: EdgeInsets.symmetric(horizontal: size.width*0.06,vertical: size.height*0.005),
                     child: Text("Find People\nto connect with!",style: TextStyle(color: Colors.white,fontSize: size.height*0.05,fontWeight: FontWeight.w800),),
                   ),
                   Padding(
@@ -153,7 +151,7 @@ class _SearchState extends State<Search> {
               // backgroundImage: NetworkImage(image),
             ),
             SizedBox(height: size.height*0.01,),
-            Text(username,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)
+            Text(username,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: size.height*0.02),)
           ],
         )
     );
