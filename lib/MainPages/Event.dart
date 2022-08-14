@@ -86,7 +86,7 @@ class _EventState extends State<Event> {
                           Text('Category',style: TextStyle(fontWeight: FontWeight.bold),),
                           Container(
                             margin: EdgeInsets.symmetric(horizontal: size.width*0.04),
-                            width: 60,
+                            width: size.height>780?60:55,
                             height: 25,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
