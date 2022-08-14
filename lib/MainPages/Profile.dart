@@ -16,11 +16,6 @@ class profileState extends State<Profile>{
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor:  Color(0xfffff9eb),
-        elevation: 0.4,
-      ),
       backgroundColor: Color(0xfffff9eb),
       body: ListView(
         children: [
