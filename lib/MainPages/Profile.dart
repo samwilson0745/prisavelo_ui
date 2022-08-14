@@ -90,23 +90,6 @@ class profileState extends State<Profile>{
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      //for other profile
-                      // Padding(
-                      //   padding: EdgeInsets.symmetric(vertical: size.height*0.002),
-                      //   child: Container(
-                      //     height: 40,
-                      //     width: 120,
-                      //
-                      //     child: TextButton(
-                      //         onPressed: (){},
-                      //         style: ElevatedButton.styleFrom(
-                      //             primary: Color(0xffD00000)
-                      //         ),
-                      //         child: Text('Follow',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold))//Text('Following',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold))
-                      //     ),
-                      //   ),
-                      // ),
-
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: size.height*0.002),
                         child: Container(
@@ -134,7 +117,7 @@ class profileState extends State<Profile>{
                       trimCollapsedText: 'Show more',
                       trimExpandedText: '\nShow less',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: size.height*0.025,color: Colors.black,fontWeight: FontWeight.w400),
+                      style: TextStyle(fontSize: size.height*0.024,color: Colors.black,fontWeight: FontWeight.w400),
                     ):ReadMoreText('Mr.Perfect\nSimple boy\nMusic Lover', trimLines: 2,
                       colorClickableText: Color(0xffD00000),
                       trimMode: TrimMode.Line,
