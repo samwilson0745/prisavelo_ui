@@ -117,7 +117,7 @@ class profileState extends State<Profile>{
                       trimCollapsedText: 'Show more',
                       trimExpandedText: '\nShow less',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: size.height*0.024,color: Colors.black,fontWeight: FontWeight.w400),
+                      style: TextStyle(fontSize: size.height*0.025,color: Colors.black,fontWeight: FontWeight.w400),
                     ):ReadMoreText('Mr.Perfect\nSimple boy\nMusic Lover', trimLines: 2,
                       colorClickableText: Color(0xffD00000),
                       trimMode: TrimMode.Line,
