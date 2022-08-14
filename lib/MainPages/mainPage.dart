@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import 'package:prisavelo_ui/MainPages/Profile.dart';
+import 'package:prisavelo_ui/MainPages/Event.dart';
 
 class Main extends StatefulWidget {
   @override
@@ -6,79 +8,58 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
-  int selectedIndex = 0;
 
-  List<IconData> data = [
-    Icons.home_outlined,
-    Icons.search,
-    Icons.add_box_outlined,
-    Icons.favorite_outline_sharp,
-    Icons.person_outline_sharp
+  int selectedIndex = 0;
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  List <Widget> _widgets=[
+    Profile(),
+    Event(),
+    Container(child: Center(child: Text('Home')),),
+    Container(child: Center(child: Text('Explore')),),
+    Container(child: Center(child: Text('Notify')),)
   ];
 
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.greenAccent,
-      bottomNavigationBar: Material(
-        elevation: 10,
-        color: Colors.black,
-        child: Container(
-          height: 70,
-          width: double.infinity,
-          child: ListView.builder(
-            itemCount: data.length,
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            itemBuilder: (ctx, i) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedIndex = i;
-                  });
-                },
-                child: AnimatedContainer(
-                  duration: Duration(milliseconds: 250),
-                  width: MediaQuery.of(context).size.width/9,
-                  decoration: BoxDecoration(
-                    border: i == selectedIndex
-                        ? Border(
-                        top: BorderSide(
-                            width: 3.0, color: Colors.white))
-                        :null
-                    ,
-                    gradient: i == selectedIndex
-                        ? LinearGradient(
-                        colors: [
-                          Colors.grey.shade800,
-                          Colors.black
-                        ],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter)
-                        : null,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 5),
-                    child: Column(
-                      children: [
-                        Icon(
-                          data[i],
-                          size: 35,
-                          color: i == selectedIndex
-                              ? Colors.white
-                              : Colors.grey.shade800,
-                        ),
-                        Text("Home",style: TextStyle(color: Colors.white),)
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            scrollDirection: Axis.horizontal,
-          ),
-        ),
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor:  Color(0xfffff9eb),
+        elevation: 0.4,
       ),
+      key: _scaffoldKey,
+      floatingActionButton: null,
+      body: _widgets[selectedIndex],
+      bottomNavigationBar:   Container(
+        color: Color(0xfffff9eb),
+        child: DefaultTabController(
+          initialIndex: selectedIndex,
+          length: 5,
+          child: TabBar(
+            labelStyle: TextStyle(fontSize: size.height>780?15:12),
+            onTap: (index)=>setState(()=>{
+              selectedIndex=index
+            }),
+              tabs: <Widget>[
+                Tab(icon: Icon(Icons.person),text: 'Profile',),
+                Tab(icon: Icon(Icons.event),text:'Event'),
+                Tab(icon: Icon(Icons.home_filled),text: 'Home',),
+                Tab(icon: Icon(Icons.explore),text:'explore'),
+                Tab(icon: Icon(Icons.notifications),text: 'notify',)
+              ],
+              labelColor: Colors.black,
+              indicator: UnderlineTabIndicator(
+                borderSide: BorderSide(color: Colors.black, width: 4.0),
+                insets: EdgeInsets.only(bottom: 70),
+              ),
+              unselectedLabelColor: Colors.black,
+
+            ),
+          ),
+      ),
+
+
     );
   }
 }
