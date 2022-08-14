@@ -45,8 +45,8 @@ class _MainState extends State<Main> {
                 Tab(icon: Icon(Icons.person),text: 'Profile',),
                 Tab(icon: Icon(Icons.event),text:'Event'),
                 Tab(icon: Icon(Icons.home_filled),text: 'Home',),
-                Tab(icon: Icon(Icons.explore),text:'explore'),
-                Tab(icon: Icon(Icons.notifications),text: 'notify',)
+                Tab(icon: Icon(Icons.explore),text:'Explore'),
+                Tab(icon: Icon(Icons.notifications),text: 'Notify',)
               ],
               labelColor: Colors.black,
               indicator: UnderlineTabIndicator(
