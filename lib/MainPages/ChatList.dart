@@ -30,6 +30,7 @@ class _ChatListState extends State<ChatList> {
       body: Container(
         width: size.width,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               child: Column(
