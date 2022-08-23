@@ -7,7 +7,7 @@ import 'package:prisavelo_ui/MainPages/Profile.dart';
 import 'package:prisavelo_ui/MainPages/Switch.dart';
 import 'package:prisavelo_ui/MainPages/AddCourse.dart';
 import 'package:prisavelo_ui/MainPages/Home.dart';
-import 'package:prisavelo_ui/MainPages/Professional/MakeCourse.dart';
+import 'package:prisavelo_ui/MainPages/professional/MakeCourse.dart';
 void main() {
   runApp(MyApp());
 }
