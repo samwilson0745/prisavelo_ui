@@ -7,7 +7,7 @@ import 'package:prisavelo_ui/MainPages/Profile.dart';
 import 'package:prisavelo_ui/MainPages/Switch.dart';
 import 'package:prisavelo_ui/MainPages/AddCourse.dart';
 import 'package:prisavelo_ui/MainPages/Home.dart';
-
+import 'package:prisavelo_ui/MainPages/Professional/MakeCourse.dart';
 void main() {
   runApp(MyApp());
 }
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: MakeCourse(),
     );
   }
 }
