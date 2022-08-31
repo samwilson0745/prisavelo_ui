@@ -107,7 +107,7 @@ class _ExploreState extends State<Explore> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(snapshot.data[index]['username'],style: TextStyle(color: Colors.white,fontSize: 15),),
+                                Text(snapshot.data[index]['username'],style: TextStyle(color: Colors.white,fontSize: 12),),
                                 Text('12 min go',style: TextStyle(color: Colors.white,fontSize: 10))
                               ],
                             ),
@@ -123,7 +123,7 @@ class _ExploreState extends State<Explore> {
                             });
 
                           },
-                              child: Text('Following',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),)):ElevatedButton(onPressed: (){
+                              child: Text('Following',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 13),)):ElevatedButton(onPressed: (){
                             setState(()=>{
                               snapshot.data[index]["followStatus"]=!snapshot.data[index]["followStatus"]
                             });
@@ -136,7 +136,7 @@ class _ExploreState extends State<Explore> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)),
                               ),
-                              child: Text('Follow',style: TextStyle(fontWeight: FontWeight.bold),)),
+                              child: Text('Follow',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13),)),
                         )
                       ],
                       toolbarHeight: size.height>780?40:35,
@@ -168,7 +168,7 @@ class _ExploreState extends State<Explore> {
                                   width: size.width*0.8,
                                   padding: EdgeInsets.only(bottom: 10),
                                   child:ReadMoreText(
-                                    'Mr.Perfect Simple boy Music Loverhifhuihfuihufhuhfuihfuihuifehuifhuihefuihefuihewfuhuiwefhuiehfuhfuhefiuhqfuihuih', trimLines: 2,
+                                    'Mr.Perfect Simple boy Music Loverhekfnweilfniwefwneifnifniownfionwionfiowefonwiofnwionfiowenfonwiofwiofoinfoinwifnifninfiqniofnqoinfqionfqinfiehfihfhifhihfiqhfihqifhiqhfiqhfihqifhiqhfiqhihqfihqihifhqifhiqfhiqhfihfiqhfiqhfiqhfiqhihqfihqifhqifhqifhqifhqiwfhwifhifhiqhfihfmnclanfdlnafklfnlqiwnhfoiehfihwifhwihfihifhifhihfiqhfianlifnlqnfnalienvneifhqioehfiqhifhqihfihhafehfihifhqifhihfiqhiqhfihqifhiqhfihfiheiofhiofhiohfiehfioehfiohfiohfihfihfihfioehqihfiqhiohwfihfeihwihwifhwihwihfwihfiiqnfieqnefiqniofnqeifnubvbeofbqphfiqfifhuihfuihufhuhfuihfuihuifehuifhuihefuihefuihewfuhuiwefhuiehfuhfuhefiuhqfuihuih', trimLines: 2,
                                     colorClickableText: Color(0xffD00000),
                                     trimMode: TrimMode.Line,
                                     trimCollapsedText: 'Show more',
@@ -232,135 +232,3 @@ class _ExploreState extends State<Explore> {
     });
   }
 }
-//PageView.builder(
-//        scrollDirection: Axis.vertical,
-//          itemCount: 5,
-//          itemBuilder:(context,index){
-//            return Scaffold(
-//              appBar: AppBar(
-//                backgroundColor: Color(0xff03071E),
-//                leading: IconButton(
-//                  onPressed: (){
-//                    Navigator.pop(context);
-//                  },
-//                  icon: Icon(Icons.arrow_circle_left_outlined),
-//                ),
-//                title: GestureDetector(
-//                  onTap: (){},
-//                  child: Row(
-//                    children: [
-//                      CircleAvatar(
-//                        radius: size.height>780?20:18,
-//                      ),
-//                      SizedBox(width: 10,),
-//                      Column(
-//                        crossAxisAlignment: CrossAxisAlignment.start,
-//                        children: [
-//                          Text('Sayak Ghosh',style: TextStyle(color: Colors.white,fontSize: 15),),
-//                          Text('12 min go',style: TextStyle(color: Colors.white,fontSize: 10))
-//                        ],
-//                      ),
-//                    ],
-//                  ),
-//                ),
-//                actions: [
-//                  SizedBox(
-//                    width: size.width*0.25,
-//                    child: ElevatedButton(onPressed: (){},
-//                        style:ElevatedButton.styleFrom(
-//                          primary: Color(0xffD00000),
-//                          onPrimary: Colors.white,
-//
-//                          elevation: 3,
-//                          shape: RoundedRectangleBorder(
-//                              borderRadius: BorderRadius.circular(10)),
-//                        ),
-//                        child: Text('Follow',style: TextStyle(fontWeight: FontWeight.bold),)),
-//                  )
-//                ],
-//                toolbarHeight: size.height>780?40:35,
-//                elevation: 0.0,
-//              ),
-//              backgroundColor: Color(0xff03071E),
-//              body: Container(
-//                child: Stack(
-//                  children: [
-//                    Center(
-//                      child: Container(
-//                        width: size.width,
-//                        height: size.height/3.5,
-//                        decoration: BoxDecoration(
-//                            image: DecorationImage(
-//                                fit: BoxFit.fill,
-//                                image: NetworkImage(
-//                                    'https://picsum.photos/id/${index + 1047}/800/1080'
-//                                )
-//                            )
-//                        ),
-//                      ),
-//                    ),
-//                    Align(
-//                      alignment: Alignment.bottomLeft,
-//                      child: Padding(
-//                        padding: EdgeInsets.symmetric(horizontal: size.width*0.02,vertical: size.height*0.02),
-//                        child: Container(
-//                          width: size.width*0.8,
-//                          padding: EdgeInsets.only(bottom: 10),
-//                          child:ReadMoreText(
-//                            'Mr.Perfect Simple boy Music Loverhifhuihfuihufhuhfuihfuihuifehuifhuihefuihefuihewfuhuiwefhuiehfuhfuhefiuhqfuihuih', trimLines: 2,
-//                            colorClickableText: Color(0xffD00000),
-//                            trimMode: TrimMode.Line,
-//                            trimCollapsedText: 'Show more',
-//                            trimExpandedText: '\nShow less',
-//                            style: TextStyle(fontSize: size.height>780?15:12,color: Colors.white,fontWeight: FontWeight.w400),
-//                          )
-//                        ),
-//                      ),
-//                    ),
-//                    Align(
-//                      alignment: Alignment.bottomRight,
-//                      child: Container(
-//                        height: size.height>780?size.height*0.28:size.height*0.31,
-//                        width: size.width*0.16,
-//                        child: Column(
-//                          children: [
-//                            IconButton(
-//                              onPressed: (){
-//                               setState(
-//                                   ()=>{
-//                                     profiles[index]["likeStatus"]=!profiles[index]["likeStatus"]
-//                                   }
-//                               );
-//                               if(profiles[index]["likeStatus"]==true){
-//                                 _increment(index);
-//                               }
-//                               else{
-//                                 _decrement(index);
-//                               }
-//                             },
-//                              icon: Icon(profiles[index]["likeStatus"]==true?Icons.favorite:Icons.favorite_border_outlined,color: profiles[index]["likeStatus"]==true?Colors.red:Colors.white,size: size.height>780?size.height*0.05:size.height*0.04,),
-//                            ),
-//                            SizedBox(height: size.height>780?size.height*0.01:0.05,),
-//                            Padding(
-//                              padding:  EdgeInsets.only(left: size.height>780?size.width*0.02:size.width*0.01),
-//                              child: Text('${profiles[index]["likes"]}',style: TextStyle(color: Colors.white,fontSize: size.height*0.02,fontWeight: FontWeight.bold),),
-//                            ),
-//                            // SizedBox(height: 5,),
-//                            IconButton(onPressed: (){}, icon: Icon(Icons.comment,color: Colors.white,size: size.height>780?size.height*0.05:size.height*0.04,),),
-//                            // SizedBox(height: 5,),
-//                            Padding(
-//                              padding:  EdgeInsets.only(left: size.height>780?size.width*0.02:size.width*0.01),
-//                              child: Text('${profiles[index]["comments"]}',style: TextStyle(color: Colors.white,fontSize: size.height*0.02,fontWeight: FontWeight.bold),),
-//                            ),
-//                            IconButton(onPressed: (){}, icon: Icon(Icons.bookmark_add_outlined,color: Colors.white,size: size.height*0.05,),),
-//                          ],
-//                        ),
-//                      ),
-//                    )
-//                  ],
-//                ),
-//              ),
-//            );
-//          }
-//
-//     );

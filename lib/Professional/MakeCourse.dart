@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prisavelo_ui/MainPages/mainPage.dart';
+import 'package:prisavelo_ui/Professional/PublishCourse.dart';
 
 class MakeCourse extends StatefulWidget {
   const MakeCourse({Key? key}) : super(key: key);
@@ -10,7 +11,6 @@ class MakeCourse extends StatefulWidget {
 
 class _MakeCourseState extends State<MakeCourse> {
   Widget _customListTile(Size size,int index,IconData icon){
-    TextEditingController _controller=new TextEditingController();
     return Container(
       margin: EdgeInsets.only(top: size.height*0.01),
       width: size.width,
@@ -92,11 +92,6 @@ class _MakeCourseState extends State<MakeCourse> {
       ),
     );
   }
-  List items= <Widget>[
-    Container()
-  ];
-  List val=[1];
-
   @override
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
@@ -112,7 +107,9 @@ class _MakeCourseState extends State<MakeCourse> {
           toolbarHeight: size.height*0.1,
           leading: IconButton(
             icon: Icon(Icons.arrow_circle_left_outlined,color: Colors.black,size: 40,),
-            onPressed: (){},
+            onPressed: (){
+              Navigator.pop(context);
+            },
           ),
           title: Text( "Course Name Will be here and the...",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.w900),),
@@ -123,7 +120,7 @@ class _MakeCourseState extends State<MakeCourse> {
                 flex: 8,
                 child: ListView(
                   children: [
-                    _customListTile(size, 0,Icons.add)
+                    _customListTile(size, 0,Icons.add),
                   ],
                 )
             ),
@@ -152,7 +149,9 @@ class _MakeCourseState extends State<MakeCourse> {
                       width: size.width/2.2,
                       height: size.height>780?size.height*0.065:size.height*0.07,
                       child: OutlinedButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => PublishCourse(3)));
+                          },
                           style: OutlinedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0),

@@ -105,13 +105,14 @@ class _FindCourseState extends State<FindCourse> {
                               ),
                               Expanded(
                                   flex: 4,
-                                  child: ListView.builder(
-                                    shrinkWrap: true,
-                                    itemCount: 5,
-                                    itemBuilder: (context,index){
-                                      return _ListTile(size, 'Gym For Beginner 30 Min No Equipment No rest', 'GYM', 'Sayak Ghosh', 'image', 'Description : sdjsdj a ds sdg s gsg sdg sdg sdg s gsdg sg sdg sdg sdgsf fsgsg h dfhfd hfdhdf hdfh dfh dh df', 'coverImage');
-                                    },
-                                  ))
+                                  child:ListView(
+                                    children: [
+                                      _ListTile(size, 'Gy', 'GYM', 'Sayak Ghosh', 'image', 'Description : sdjsdj a ds sdg s gsg sdg sdg sdg s gsdg sg sdg sdg sdgsf fsgsg h dfhfd hfdhdf hdfh dfh dh df', 'coverImage'),
+                                      _ListTile(size, 'Gy', 'GYM', 'Sayak Ghosh', 'image', 'Description : sdjsdj a ds sdg s gsg sdg sdg sdg s gsdg sg sdg sdg sdgsf fsgsg h dfhfd hfdhdf hdfh dfh dh df', 'coverImage'),
+                                      _ListTile(size, 'Gy', 'GYM', 'Sayak Ghosh', 'image', 'Description : sdjsdj a ds sdg s gsg sdg sdg sdg s gsdg sg sdg sdg sdgsf fsgsg h dfhfd hfdhdf hdfh dfh dh df', 'coverImage'),
+                                    ],
+                                  )
+                              )
                             ],
                           )
                           ))
@@ -141,8 +142,9 @@ class _FindCourseState extends State<FindCourse> {
                 margin: EdgeInsets.symmetric(horizontal: size.width*0.02),
                 height: size.height*0.2,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(topic,style: TextStyle(fontWeight: FontWeight.bold,color: Color(0xffD00000),fontSize: size.height>780?18:10)),
+                    Text(topic, maxLines:2,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color: Color(0xffD00000),fontSize: size.height>780?18:10)),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: size.height*0.005),
                       child: Row(

@@ -24,7 +24,7 @@ class _EventState extends State<Event> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Categories',style: TextStyle(fontWeight: FontWeight.bold),),
+                  Text('Categories',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
                  Container(
                    width: size.width*0.7,
                    height:size.height>780?size.height*0.04:size.height*0.05,
@@ -51,7 +51,7 @@ class _EventState extends State<Event> {
                   shrinkWrap: true,
                   itemCount: 5,
                   itemBuilder: (context,index){
-                    return _ListTile(size, 'Gym For Beginner 30 Min No Equipment No rest', 'GYM', 'Sayak Ghosh', 'image', 'Description : sdjsdj a ds sdg s gsg sdg sdg sdg s gsdg sg sdg sdg sdgsf fsgsg h dfhfd hfdhdf hdfh dfh dh df', 'coverImage');
+                    return _ListTile(size, ' Min No Equipment No rest', 'GYM', 'Sayak Ghosh', 'image', 'Description : sdjsdj a ds sdg s gsg sdg sdg sdg s gsdg sg sdg sdg sdgsf fsgsg h dfhfd hfdhdf hdfh dfh dh df', 'coverImage');
                   },
                 ))
           ],
