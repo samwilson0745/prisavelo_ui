@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: VideoApp(),
+      home: VideoApp("https://firebasestorage.googleapis.com/v0/b/prisavelo-7a2f8.appspot.com/o/course%2Ff7PZMdcTVXdk69d8JZNxBq7cDhE2%2F01199587-3ff3-4bfc-90dd-82bca242cc00_1.mp4?alt=media&token=95291df0-4604-4343-a561-9a0f4a772120",),
     );
   }
 }
