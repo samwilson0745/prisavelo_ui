@@ -7,7 +7,7 @@ class About extends StatefulWidget {
 
 class _AboutState extends State<About> {
 
-  Widget singleCard(String image,String name,String occupation){
+  Widget singleCard(Size size,String image,String name,String occupation){
     return Card(
       color: Color(0xfffff9eb),
       elevation: 0.0,
@@ -17,8 +17,8 @@ class _AboutState extends State<About> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children:<Widget> [
             Container(
-              width: 90,
-              height: 90,
+              width: size.height>780?size.width*0.3:90,
+              height: size.height>780?size.height*0.1:90,
               decoration: BoxDecoration(
                 color: Colors.red,
                 borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -98,10 +98,10 @@ class _AboutState extends State<About> {
                           physics: NeverScrollableScrollPhysics(),
                           crossAxisCount: 2,
                           children: [
-                            singleCard("image", "Sayak Ghosh","CEO | Founder"),
-                            singleCard("image", "Punnyartha Banerjee","CTO | Founder"),
-                            singleCard("image", "Soham Deb Majumder","Co-Founder | Vice President Engineering"),
-                            singleCard("image", "Soumajit Das","Front Developer")
+                            singleCard(size,"image", "Sayak Ghosh","CEO | Founder"),
+                            singleCard(size,"image", "Punnyartha Banerjee","CTO | Founder"),
+                            singleCard(size,"image", "Soham Deb Majumder","Co-Founder | Vice President Engineering"),
+                            singleCard(size,"image", "Soumajit Das","Front Developer")
                           ],
                         ),
 
